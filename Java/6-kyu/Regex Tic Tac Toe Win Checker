@@ -1,0 +1,18 @@
+import java.util.regex.*;
+
+public class RegexTicTacToeWinChecker {
+    public static boolean regexTicTacToeWinChecker(String board) {
+        String[] regex = new String[] {"X..X..X..","XXX......","...XXX...","......XXX","X...X...X","..X.X.X..",".X..X..X.","..X..X..X"};
+        String[] regex2 = new String[] {"O..O..O..","OOO......","...OOO...","......OOO","O...O...O","..O.O.O..",".O..O..O.","..O..O..O"};
+        
+        for(String s:regex){
+        if(Pattern.matches(s,board) == true) return true;
+        }
+        
+        for(String st:regex2){
+        if(Pattern.matches(st,board) == true) return true;
+        }
+        
+        return false;
+    }
+}
