@@ -1,0 +1,35 @@
+/*Compare two strings by comparing the sum of their values (ASCII character code).
+
+For comparing treat all letters as UpperCase
+null/NULL/Nil/None should be treated as empty strings
+If the string contains other characters than letters, treat the whole string as it would be empty
+Your method should return true, if the strings are equal and false if they are not equal.*/
+
+function compare($s1, $s2) {
+
+  $val1 = 0; $val2 = 0;
+
+  if(!preg_match_all('/[^a-zA-Z]/',$s1)){
+
+  $arr1 = str_split(strtoupper($s1));
+  
+  foreach($arr1 as $i){
+    $val1 += ord($i);
+  }
+  }
+  
+  if(!preg_match_all('/[^a-zA-Z]/',$s2)){
+  $arr2 = str_split(strtoupper($s2));
+  
+  foreach($arr2 as $j){
+    $val2 += ord($j);
+  }
+  }
+  
+  
+  if($val1 == $val2){
+  return true;
+  } else {
+  return false;
+  }
+}
