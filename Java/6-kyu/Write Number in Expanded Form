@@ -1,0 +1,37 @@
+//Write Number in Expanded Form
+//You will be given a number and you will need to return it as a string in Expanded Form. For example:
+
+//Kata.expandedForm(12); # Should return "10 + 2"
+//Kata.expandedForm(42); # Should return "40 + 2"
+//Kata.expandedForm(70304); # Should return "70000 + 300 + 4"
+//NOTE: All numbers will be whole numbers greater than 0.
+
+
+public class Kata
+{
+		public static String expandedForm(int num)
+    {
+		int length = Integer.toString(num).length();
+		int[] x = new int[length];
+		String s = ""; int c = 1;
+		
+		for(int i=0;i<length;i++) {
+			x[i] = (int) (num/Math.pow(10,length-c));
+			x[i] = (int) (x[i]*Math.pow(10,length-c));
+			num = num-x[i];
+			c++;
+		}
+		
+		c = 0;
+		
+		for(int i:x) {
+			if(i!=0) {
+			if(c<x.length-1) s = s+i+" + ";
+			else s = s+i;}
+			c++;
+		}
+		
+		if(s.charAt(s.length()-1)==' ') return s.substring(0, s.length()-3);
+		else return s;     
+}
+}
