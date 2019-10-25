@@ -15,9 +15,7 @@ function gps($s, $x) {
   for($i=0;$i<count($x)-1;$i++){
     array_push($arr,$x[$i+1]-$x[$i]);
   }
-  
-  print_r($arr);
-  
+   
   foreach($arr as &$val){
     $val = 3600*$val/$s;
   }
