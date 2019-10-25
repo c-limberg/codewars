@@ -1,0 +1,32 @@
+//Task: Given a List [] of n integers , find minimum mumber to be inserted in a list, so that sum of all elements of list should equal the closest prime number.
+//Notes
+//List size is at least 2.
+//List's numbers will only positives (n > 0).
+//Repeatition of numbers in the list could occur.
+//The newer list's sum should equal the closest prime number.
+
+public class Solution
+{
+    public static int minimumNumber(int[] numbers)
+    {
+        int sum = 0; int insert = 0;
+        for(int i:numbers){
+        sum = sum+i;
+        }
+        
+        int buffer = sum;
+        
+        while(prime(sum)==false){
+          insert++;
+          sum = buffer+insert;
+        }
+  return insert;
+    }
+    
+    public static boolean prime(int n){
+      for(int i=2;i<n;i++){
+        if(n%i==0) return false;
+      }
+      return true;
+    }
+}
